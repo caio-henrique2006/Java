@@ -19,7 +19,7 @@ Cliente:
         Endereço; 
         EstadoCivil;
 */
-class Conta {
+class ContasEClientes {
     public static void main(String[] args) {
 
         // Clientes & Contas:
@@ -30,16 +30,14 @@ class Conta {
         cliente001.dataDeNascimento = "01/06/2006";
         cliente001.endereço = "Cidade genêrica";
         cliente001.estadoCivil = "Solteiro";
-        conta001.numero = 0000001;
-        conta001.saldo = 1000;
-        conta001.limite = 500;
+        conta001.numero = 1;
+        conta001.saldo = 1000.0;
+        conta001.limite = 500.0;
         conta001.agencia = "Banco do Brasil";
-        conta001.dataAbertura = "01/06/2006";
+        conta001.dataAbertura = "29/07/2018";
 
         // Testes:
-        System.out.println(conta001.titular.nome);
-
-
+        conta001.dataCount();
         
 
     }
@@ -67,12 +65,26 @@ class Conta {
     // Métodos:
     String saca(double valor) {
         if(valor > limite) {
-            return "atingiu limite";
+            return "Abortando operação: Limite de saque atingido...";
         } else if (valor > saldo) {
-            return "saldo insuficiente";
+            return "Abortando operação: Saldo insuficiente...";
         } else {
-            novoSaldo = this.saldo - valor;
+            double novoSaldo = this.saldo - valor;
             this.saldo = novoSaldo;
+            return "Operação bem sucedida";
         }
+    }
+    String deposita(double valor) {
+        double novoSaldo = this.saldo + valor;
+        this.saldo = novoSaldo;
+        return "Operação bem sucedida";
+    }
+    void dataCount() {
+        System.out.println("Titular: " + this.titular.nome);
+        System.out.println("Número da conta: " + this.numero);
+        System.out.println("Saldo atual: " + this.saldo);
+        System.out.println("Limite de saque: " + this.limite);
+        System.out.println("Agência responsável: " + this.agencia);
+        System.out.println("Data de abertura: " + this.dataAbertura);
     }
 }
