@@ -23,18 +23,60 @@ class ContasEClientes {
     public static void main(String[] args) {
 
         // Clientes & Contas:
+        // Cliente 001:
+
         Conta conta001 = new Conta();
         Cliente cliente001 = new Cliente();
+        Data dataNascimento001 = new Data();
+        Data dataAbertura001 = new Data();
+
         conta001.titular = cliente001;
-        cliente001.nome = "Caio Henrique Almeida Ferreira Santos";
-        cliente001.dataDeNascimento = "01/06/2006";
-        cliente001.endereço = "Cidade genêrica";
-        cliente001.estadoCivil = "Solteiro";
         conta001.numero = 1;
         conta001.saldo = 1000.0;
         conta001.limite = 500.0;
         conta001.agencia = "Banco do Brasil";
-        conta001.dataAbertura = "29/07/2018";
+        conta001.dataAbertura = dataAbertura001;
+
+        cliente001.nome = "Caio Henrique Almeida Ferreira Santos";
+        cliente001.dataDeNascimento = dataNascimento001;
+        cliente001.endereço = "Cidade genêrica";
+        cliente001.estadoCivil = "Solteiro";
+
+        dataNascimento001.dia = "01";
+        dataNascimento001.mes = "06";
+        dataNascimento001.ano = 2006;
+        
+        dataAbertura001.dia = "07";
+        dataAbertura001.mes = "09";
+        dataAbertura001.ano = 2018;
+
+        // Cliente 002:
+        
+        Conta conta002 = new Conta();
+        Cliente cliente002 = new Cliente();
+        Data dataNascimento002 = new Data();
+        Data dataAbertura002 = new Data();
+
+        conta002.titular = cliente002;
+        conta002.numero = 1;
+        conta002.saldo = 1000.0;
+        conta002.limite = 500.0;
+        conta002.agencia = "Banco do Brasil";
+        conta002.dataAbertura = dataAbertura001;
+
+        cliente002.nome = "Pedro Gabriel Marques Lopes";
+        cliente002.dataDeNascimento = dataNascimento002;
+        cliente002.endereço = "Cidade de Seabra";
+        cliente002.estadoCivil = "Solteiro (provavelmente)";
+
+        dataNascimento002.dia = "02";
+        dataNascimento002.mes = "06";
+        dataNascimento002.ano = 2006;
+
+        dataAbertura001.dia = "07";
+        dataAbertura001.mes = "09";
+        dataAbertura001.ano = 2018;
+        
 
         // Testes:
         conta001.dataCount();
@@ -47,9 +89,22 @@ class Cliente {
     
     // Atributos:
     String nome;
-    String dataDeNascimento;
+    Data dataDeNascimento;
     String endereço;
     String estadoCivil;
+}
+
+class Data {
+
+    // Atributos:
+    String dia;
+    String mes;
+    int ano;
+
+    String mostrarData() {
+        String text = dia + "/" + mes + "/" + ano;
+        return text;
+    }
 }
 
 class Conta {
@@ -60,7 +115,7 @@ class Conta {
     double saldo;
     double limite;
     String agencia;
-    String dataAbertura;
+    Data dataAbertura;
 
     // Métodos:
     String saca(double valor) {
@@ -85,6 +140,6 @@ class Conta {
         System.out.println("Saldo atual: " + this.saldo);
         System.out.println("Limite de saque: " + this.limite);
         System.out.println("Agência responsável: " + this.agencia);
-        System.out.println("Data de abertura: " + this.dataAbertura);
+        System.out.println("Data de abertura: " + this.dataAbertura.mostrarData());
     }
 }
