@@ -32,8 +32,6 @@ class ContasEClientes {
 
         conta001.titular = cliente001;
         conta001.numero = 1;
-        conta001.saldo = 1000.0;
-        conta001.limite = 500.0;
         conta001.agencia = "Banco do Brasil";
         conta001.dataAbertura = dataAbertura001;
 
@@ -59,8 +57,6 @@ class ContasEClientes {
 
         conta002.titular = cliente002;
         conta002.numero = 1;
-        conta002.saldo = 1000.0;
-        conta002.limite = 500.0;
         conta002.agencia = "Banco do Brasil";
         conta002.dataAbertura = dataAbertura001;
 
@@ -112,8 +108,8 @@ class Conta {
     // Atributos:
     Cliente titular;
     int numero;
-    double saldo;
-    double limite;
+    private double saldo = 1000.0;
+    private double limite = 500.0;
     String agencia;
     Data dataAbertura;
 
