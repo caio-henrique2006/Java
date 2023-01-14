@@ -29,6 +29,11 @@
 class Estrada {
     public static void main(String[] args) {
 
+        Motorista Caio = new Motorista("Caio Henrique Almeida Ferreira Santos", "01/06/2006", true);
+        Carro carroCaio = new Carro(Caio, "Pálio", 270, "azul", "ruim", 10);
+
+        System.out.println(carroCaio.acelerar());
+
     }
 }
 
@@ -43,6 +48,9 @@ class Motorista {
         this.dataNascimento = dataNascimento;
         this.habilitado = habilitado;
     }
+    String getNome() {
+        return this.nome;
+    }
 }
 class Carro {
     private Motorista motorista;
@@ -50,18 +58,27 @@ class Carro {
     private String cor;
     private String estado;
     private double potencia;
-    private double velocidadeAtual;
+    private double velocidadeAtual = 0;
     private double velocidadeMaxima;
 
     Carro(Motorista motorista, String modelo, double velocidadeMaxima,
-    String cor, String estado, double potencia, double velocidadeAtual) {
+    String cor, String estado, double potencia) {
         this.motorista = motorista;
         this.modelo = modelo;
         this.velocidadeMaxima = velocidadeMaxima;
         this.cor = cor;
         this.estado = estado;
         this.potencia = potencia;
-        this.velocidadeAtual = velocidadeAtual;
+    }
+
+    String getCarro() {
+        String retorno = ("Motorista: " + motorista.getNome() +
+        "\nModelo: " + this.modelo +
+        "\nVelocidade Máxima: " + this.velocidadeMaxima +
+        "\nCor: " + this.cor +
+        "\nEstado: " + this.estado +
+        "\nPotência: " + this.potencia + " cavalos");
+        return retorno;
     }
 
     String acelerar() {
@@ -88,7 +105,7 @@ class Carro {
 
     String mecanico() {
         this.estado = "Bom";
-        retorno = "O estado do carro está " + this.estado;
+        String retorno = "O estado do carro está " + this.estado;
         return retorno;
     }
 
